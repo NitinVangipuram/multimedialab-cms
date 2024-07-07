@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "tiltes",
+  "info": {
+    "singularName": "tilte",
+    "pluralName": "tiltes",
+    "displayName": "Tilte"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}

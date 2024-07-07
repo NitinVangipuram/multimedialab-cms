@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "team_descriptions",
+  "info": {
+    "singularName": "team-description",
+    "pluralName": "team-descriptions",
+    "displayName": "TeamDescription"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "description": {
+      "type": "text"
+    }
+  }
+}
