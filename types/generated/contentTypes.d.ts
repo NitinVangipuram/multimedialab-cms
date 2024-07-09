@@ -788,28 +788,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface ApiHeroHero extends Schema.CollectionType {
-  collectionName: 'heroes';
-  info: {
-    singularName: 'hero';
-    pluralName: 'heroes';
-    displayName: 'Hero';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    description: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::hero.hero', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiNewsNews extends Schema.CollectionType {
   collectionName: 'newss';
   info: {
@@ -830,6 +808,68 @@ export interface ApiNewsNews extends Schema.CollectionType {
     createdBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::news.news', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPublicationPublication extends Schema.CollectionType {
+  collectionName: 'publications';
+  info: {
+    singularName: 'publication';
+    pluralName: 'publications';
+    displayName: 'Publications';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::publication.publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::publication.publication',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiResearchResearch extends Schema.CollectionType {
+  collectionName: 'researches';
+  info: {
+    singularName: 'research';
+    pluralName: 'researches';
+    displayName: 'Research';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    Description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::research.research',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::research.research',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -864,12 +904,49 @@ export interface ApiTeamDescriptionTeamDescription extends Schema.SingleType {
   };
 }
 
+export interface ApiTeamMemberTeamMember extends Schema.CollectionType {
+  collectionName: 'team_members';
+  info: {
+    singularName: 'team-member';
+    pluralName: 'team-members';
+    displayName: 'Team Members';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Role: Attribute.String;
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    facebookurl: Attribute.String;
+    instagramurl: Attribute.String;
+    linkedinurl: Attribute.String;
+    twitterurl: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::team-member.team-member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::team-member.team-member',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTilteTilte extends Schema.SingleType {
   collectionName: 'tiltes';
   info: {
     singularName: 'tilte';
     pluralName: 'tiltes';
-    displayName: 'Tilte';
+    displayName: 'Title';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -912,9 +989,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'api::hero.hero': ApiHeroHero;
       'api::news.news': ApiNewsNews;
+      'api::publication.publication': ApiPublicationPublication;
+      'api::research.research': ApiResearchResearch;
       'api::team-description.team-description': ApiTeamDescriptionTeamDescription;
+      'api::team-member.team-member': ApiTeamMemberTeamMember;
       'api::tilte.tilte': ApiTilteTilte;
     }
   }

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * hero router
+ * publication router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::hero.hero');
+module.exports = createCoreRouter('api::publication.publication');

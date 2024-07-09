@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * hero service
+ * team-member service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::hero.hero');
+module.exports = createCoreService('api::team-member.team-member');
