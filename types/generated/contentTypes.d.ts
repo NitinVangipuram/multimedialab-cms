@@ -794,6 +794,7 @@ export interface ApiNewsNews extends Schema.CollectionType {
     singularName: 'news';
     pluralName: 'newss';
     displayName: 'News';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -801,7 +802,7 @@ export interface ApiNewsNews extends Schema.CollectionType {
   attributes: {
     Title: Attribute.String;
     Description: Attribute.Text;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Attribute.Media<'images'> & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
