@@ -1,62 +1,99 @@
-# 🚀 Getting started with Strapi
+# Multimedia Lab CMS
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+A Strapi-based headless CMS backend for the Emerging Multimedia & AI Lab (EMA) website at IIT Dharwad.
 
-### `develop`
+## Overview
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+This repository contains the Strapi CMS backend that powers the EMA Lab website. It provides content management capabilities through a user-friendly admin interface and serves content to the frontend application.
+
+## Content Types
+
+The CMS includes the following content types:
+
+- **Navbar**: Navbar links configuration
+- **Dropdowns**: Dropdown menus for navbar items
+- **Footer-links**: Links displayed in the website footer
+- **Announcements**: Time-sensitive announcements for the website
+- **Gallery**: Media items for the gallery page
+- **News**: News articles and updates
+- **Pages**: Custom page content for dynamic page creation
+- **Publications**: Research papers and publications
+- **Research**: Research projects and initiatives
+- **Team Members**: Information about lab members
+- **ThrustAreas**: Key research focus areas
+- **AboutUs**: Content for the About Us page
+- **Footer**: Content for the footer information section
+
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js (v14.x or later recommended)
+- npm or yarn
+- PostgreSQL database
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ema-iitdh/multimedialab-cms.git
+   cd multimedialab-cms
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Create a `.env` file in the root directory with the following format:
+   ```
+   HOST=0.0.0.0
+   PORT=1337
+   APP_KEYS=key1,key2,key3,key4
+   API_TOKEN_SALT=your-api-token-salt
+   ADMIN_JWT_SECRET=your-admin-jwt-secret
+   TRANSFER_TOKEN_SALT=your-transfer-token-salt
+   JWT_SECRET=your-jwt-secret
+   
+   # Database
+   DATABASE_CLIENT=postgres
+   DATABASE_HOST=your-database-host
+   DATABASE_PORT=5432
+   DATABASE_NAME=your-database-name
+   DATABASE_USERNAME=your-database-username
+   DATABASE_PASSWORD=your-database-password
+   
+   # Cloudinary (for media storage)
+   CLOUDINARY_NAME=your-cloudinary-name
+   CLOUDINARY_KEY=your-cloudinary-key
+   CLOUDINARY_SECRET=your-cloudinary-secret
+   ```
+
+4. Start the development server:
+   ```bash
+   npm run develop
+   # or
+   yarn develop
+   ```
+
+5. Access the admin panel at `http://localhost:1337/admin`
+
+
+## Admin Guide
+
+After setting up the admin account, you can:
+
+1. Create and manage content for all defined content types
+2. Configure user permissions and roles
+3. Upload and manage media files through Cloudinary integration
+4. Set up webhooks for content update notifications
+
+## Connecting to Frontend
+
+The frontend application should be configured to fetch data from this CMS. Set the following in your frontend environment:
 
 ```
-npm run develop
-# or
-yarn develop
+REACT_APP_API_ENDPOINT==http://localhost:1337
 ```
-
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
-# multimedialab-cms
